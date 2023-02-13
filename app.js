@@ -25,4 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
       img: "imagenes/e.png"
     }
   ];
+  const cuadricula = document.querySelector(".cuadricula");
+  const resultado = document.querySelector("#resultado");
+  var cartasEscogidas = [];
+  var cartasEscogidasId = [];
+  var cartasGanadas = [];
 });
