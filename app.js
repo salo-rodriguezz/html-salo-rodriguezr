@@ -1,27 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cardAdj = [
     {
-      neme: "s",
+      name: "s",
       img: "imagenes/s.png"
     },
     {
-      neme: "a",
+      name: "a",
       img: "imagenes/a.png"
     },
     {
-      neme: "l",
+      name: "l",
       img: "imagenes/l.png"
     },
     {
-      neme: "o",
+      name: "o",
       img: "imagenes/o.png"
     },
     {
-      neme: "m",
+      name: "m",
       img: "imagenes/m.png"
     },
     {
-      neme: "e",
+      name: "e",
       img: "imagenes/e.png"
     }
   ];
@@ -30,4 +30,27 @@ document.addEventListener("DOMContentLoaded", () => {
   var cartasEscogidas = [];
   var cartasEscogidasId = [];
   var cartasGanadas = [];
+
+  function crearTablero() {
+    for (let i = 0; i < cardAdj.length; i++) {
+      var carta = document.createElement("img");
+
+      carta.setAttribute("src", "imagenes/reverso.png");
+      carta.setAttribute("data-id", i);
+      carta.addEventListener("click", voltearCarta);
+      cuadricula.appendChild(carta);
+    }
+  }
+
+  function voltearCarta() {
+    var cardId = this.getAttribute("data-id");
+    cartasEscogidas.push(cardAdj[cardId].name);
+    cartasEscogidasId.push(cardId);
+    this.setAttribute("src", cardAdj[cardId].img);
+    if (cartasEscogidas.length === 2) {
+      setTimeout(verificarpareja, 1000);
+    }
+  {
+
+  crearTablero();
 });
